@@ -1,1 +1,1 @@
-nighttime
+nighttime boolean
