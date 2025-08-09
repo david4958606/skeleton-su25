@@ -9,7 +9,12 @@ public class ArrayOperations {
         if (pos < 0 || pos >= values.length) {
             return;
         }
-        // TODO: fill out this function
+        // Shift elements down
+        for (int i = pos; i < values.length - 1; i++) {
+            values[i] = values[i + 1];
+        }
+        // Set the last element to 0
+        values[values.length - 1] = 0;
     }
 
     /**
@@ -21,16 +26,26 @@ public class ArrayOperations {
         if (pos < 0 || pos >= values.length) {
             return;
         }
-        // TODO: fill out this function
+        // Shift elements up
+        for (int i = values.length - 1; i > pos; i--) {
+            values[i] = values[i - 1];
+        }
+        // Insert newInt at the specified position
+        values[pos] = newInt;
     }
 
     /** 
-     * Returns a new array consisting of the elements of A followed by the
+     * Returns a new array consisting of the elements of A followed by
      *  the elements of B. 
      */
     public static int[] catenate(int[] A, int[] B) {
-        // TODO: fill out this function
-        return null;
+        if (A == null || B == null) {
+            return null;
+        }
+        int[] result = new int[A.length + B.length];
+        System.arraycopy(A, 0, result, 0, A.length);
+        System.arraycopy(B, 0, result, A.length, B.length);
+        return result;
     }
 
 }
